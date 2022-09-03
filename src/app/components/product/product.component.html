@@ -1,0 +1,16 @@
+<div class="productWrapper">
+
+  <p>{{data.category}}</p>
+  <img class="img" [src]="data.image" [alt]="data.title"/>
+  <h2>{{data.title}}</h2>
+  <p>Price: <b>{{data.price | currency: "BLR"}}</b></p>
+
+  <button
+    (click)="details=!details"
+    class="btn">Show Details</button>
+
+  <div *ngIf="details">
+    <h2>{{data.description}}</h2>
+    <p>Rate:{{data.rating.rate}}</p>
+  </div>
+</div>
