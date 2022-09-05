@@ -6,6 +6,7 @@ import { TodoInputComponent } from './components/todo-input/todo-input.component
 import {FormsModule} from "@angular/forms";
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { ProductComponent } from './components/product/product.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProductComponent } from './components/product/product.component';
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

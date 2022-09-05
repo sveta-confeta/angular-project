@@ -5,9 +5,10 @@
   <h2>{{data.title}}</h2>
   <p>Price: <b>{{data.price | currency: "BLR"}}</b></p>
 
-  <button
+  <button [ngClass]="{ellow : !details,
+  red:details}"
     (click)="details=!details"
-    class="btn">Show Details</button>
+    class="btn">{{ details ? 'Hide' : 'Show'}} Details</button>
 
   <div *ngIf="details">
     <h2>{{data.description}}</h2>

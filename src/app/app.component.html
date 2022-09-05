@@ -6,8 +6,10 @@
       <app-todo-item [todo]="todo" (deleteTodo)="removeTodo(i)"></app-todo-item>
     </li>
   </ul>
-
-  <app-product [data]="product[0]"></app-product>
-  <app-product [data]="product[1]"></app-product>
+ <p *ngIf="loading" class="loading">...LOADING...</p>
+<!--  <app-product [data]="product[0]"></app-product>-->
+<!--  <app-product [data]="product[1]"></app-product>-->
+  <app-product
+    *ngFor="let pr of product; let i = index" [data]="pr"></app-product>
 
 </div>
