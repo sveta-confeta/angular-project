@@ -1,0 +1,15 @@
+.errorWrapper{
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: brown;
+  color: white;
+  position: relative;
+}
+.btnError{
+  position: absolute;
+  top:20px;
+  right: 40px;
+  color:brown;
+}

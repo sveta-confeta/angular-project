@@ -7,13 +7,15 @@ import {FormsModule} from "@angular/forms";
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { ProductComponent } from './components/product/product.component';
 import {HttpClientModule} from "@angular/common/http";
+import { GlobalErrorComponent } from './components/global-error/global-error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoInputComponent,
     TodoItemComponent,
-    ProductComponent
+    ProductComponent,
+    GlobalErrorComponent
   ],
   imports: [
     FormsModule,
