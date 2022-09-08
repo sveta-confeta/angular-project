@@ -1,13 +1,23 @@
 <app-global-error> </app-global-error>
 <div class="app-wrapper">
-  <h1>WELCOME TO {{title}} </h1>
   <app-todo-input (submit)="addTodo($event)"></app-todo-input>
   <ul>
     <li *ngFor="let todo of todoItems; index as i">
       <app-todo-item [todo]="todo" (deleteTodo)="removeTodo(i)"></app-todo-item>
     </li>
   </ul>
+<!--  //добавление новых постов-->
+  <app-post-form
+  (onAdd)="updatePosts($event)"
+  ></app-post-form>
+
+  <app-post *ngFor="let p of posts" [post]="p"></app-post>
+
+
  <p *ngIf="loading" class="loading">...LOADING...</p>
+<!--  сверху инпут для фильтрации товаров-->
+<input  class='inputSort' type="text" placeholder="sort">
+  <!--  карточки товаров-->
 <!--  <app-product [data]="product[0]"></app-product>-->
 <!--  <app-product [data]="product[1]"></app-product>-->
   <app-product

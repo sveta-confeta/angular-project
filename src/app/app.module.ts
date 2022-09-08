@@ -8,6 +8,9 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { ProductComponent } from './components/product/product.component';
 import {HttpClientModule} from "@angular/common/http";
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
+import { FilterProductsPipe } from './pipes/filter-products.pipe';
+import { PostFormComponent } from './components/post-form/post-form.component';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { GlobalErrorComponent } from './components/global-error/global-error.com
     TodoInputComponent,
     TodoItemComponent,
     ProductComponent,
-    GlobalErrorComponent
+    GlobalErrorComponent,
+    FilterProductsPipe,
+    PostFormComponent,
+    PostComponent
   ],
   imports: [
     FormsModule,

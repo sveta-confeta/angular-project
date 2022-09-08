@@ -3,6 +3,7 @@ import {TodoModel} from "./models/todo-model";
 import {TodoStorageService} from "./services/todo-storage.service";
 import {IProduct} from "./models/product";
 import {ProductsService} from "./services/products.service";
+import {Post} from "./models/post";
 
 @Component({
   selector: 'app-root',
@@ -10,12 +11,20 @@ import {ProductsService} from "./services/products.service";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'angular';
+  term = '';
   todoItems: TodoModel[] = []; //оставляем инициализацию, остальное в сервис
   product: IProduct[] = [];// инициализация продукта
   loading = false;
+  posts: Post[] = [
+    {title: "хочу выучить angular", text: " Я все еще учу", id: 1},
+    {title: "хочу отличную работу", text: " Я все еще ищу", id: 2}
+  ]
 
   constructor(private todoStorege: TodoStorageService, private productService: ProductsService) { //сдесь у нас подключение сервиса
+  }
+
+  updatePosts(post: Post) {
+    this.posts.unshift(post)
   }
 
   ngOnInit(): void {

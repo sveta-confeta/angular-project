@@ -7,6 +7,7 @@ import {TodoModel} from "../../models/todo-model";
   styleUrls: ['./todo-item.component.scss']
 })
 export class TodoItemComponent {
+  arr=[1,40,6,4,80,43,1,7];
 
   @Input() todo: TodoModel = {title: ''};
   @Output() deleteTodo = new EventEmitter<void>();

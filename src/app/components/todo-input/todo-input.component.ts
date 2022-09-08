@@ -7,9 +7,16 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class TodoInputComponent implements OnInit {
   todoTitle: string = " ";
+  img="https://wallbox.ru/resize/320x240/wallpapers/main2/201705/trava-koski-kotata.jpg"
+  text="";
+  toggle = false;
   @Output() submit = new EventEmitter<string>();
 
   constructor() {
+  }
+
+  onIn(inputValue:string){
+    this.text= inputValue
   }
 
   ngOnInit(): void {
