@@ -1,25 +1,26 @@
-<app-global-error> </app-global-error>
+<app-global-error></app-global-error>
 <div class="app-wrapper">
-  <app-todo-input (submit)="addTodo($event)"></app-todo-input>
-  <ul>
-    <li *ngFor="let todo of todoItems; index as i">
-      <app-todo-item [todo]="todo" (deleteTodo)="removeTodo(i)"></app-todo-item>
-    </li>
-  </ul>
-<!--  //добавление новых постов-->
+  <!--  //добавление новых постов-->
   <app-post-form
-  (onAdd)="updatePosts($event)"
+    (onAdd)="updatePosts($event)"
   ></app-post-form>
 
-  <app-post *ngFor="let p of posts" [post]="p"></app-post>
+  <app-post *ngFor="let p of posts" [post]="p" (onRemove)="removePost($event)">
+    <div #info>
+      <small *ngIf="p.text.length>10; else short">Пост длинный</small>
+      <ng-template #short>
+        <small>Пост короткий</small>
+      </ng-template>
+    </div>
+  </app-post>
 
 
- <p *ngIf="loading" class="loading">...LOADING...</p>
-<!--  сверху инпут для фильтрации товаров-->
-<input  class='inputSort' type="text" placeholder="sort">
+  <p *ngIf="loading" class="loading">...LOADING...</p>
+  <!--  сверху инпут для фильтрации товаров-->
+  <input class='inputSort' type="text" placeholder="sort">
   <!--  карточки товаров-->
-<!--  <app-product [data]="product[0]"></app-product>-->
-<!--  <app-product [data]="product[1]"></app-product>-->
+  <!--  <app-product [data]="product[0]"></app-product>-->
+  <!--  <app-product [data]="product[1]"></app-product>-->
   <app-product
     *ngFor="let pr of product; let i = index" [data]="pr"></app-product>
 

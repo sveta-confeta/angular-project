@@ -2,8 +2,8 @@
 <h2>форма добавления постов</h2>
 
 <div>
-  <input type="text" class="form-control" placeholder="title" [(ngModel)]="title">
+  <input type="text"  class="form-control" #titleInput placeholder="title" [(ngModel)]="title" [libFocus]="true" [setFocus]="focusEvent">
   <input type="text" class="form-control" placeholder="text" [(ngModel)]="text">
-  <button (click)="addPost()" class="btn">Добавить пост</button>
+  <button (click)="addPost(); focusTitle()" class="btn">Добавить пост</button>
 </div>
 <hr>

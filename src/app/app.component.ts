@@ -12,7 +12,6 @@ import {Post} from "./models/post";
 })
 export class AppComponent implements OnInit {
   term = '';
-  todoItems: TodoModel[] = []; //оставляем инициализацию, остальное в сервис
   product: IProduct[] = [];// инициализация продукта
   loading = false;
   posts: Post[] = [
@@ -29,7 +28,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true
-    this.todoItems = this.todoStorege.todoItems, //достали данные из сервиса
       this.productService.getAll().subscribe(products => {
         this.product = products;
         this.loading = false;
@@ -39,6 +37,10 @@ export class AppComponent implements OnInit {
 
   addTodo(title: string) { //достали колбэк из сервиса и его тут вызвали
     this.todoStorege.addTodo(title);
+  }
+
+  removePost(id:number){
+    this.posts=this.posts.filter(f => f.id !== id)
   }
 
   removeTodo(todoIndex: number) {
