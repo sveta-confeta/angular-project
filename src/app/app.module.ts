@@ -12,7 +12,8 @@ import { FilterProductsPipe } from './pipes/filter-products.pipe';
 import { PostFormComponent } from './components/post-form/post-form.component';
 import { PostComponent } from './components/post/post.component';
 import {AngularInputFocusModule} from "angular-input-focus";
-import { StyleComponent } from './directives/style/style.component';
+import {StyleDirective} from "./directives/style.directive";
+
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { StyleComponent } from './directives/style/style.component';
     FilterProductsPipe,
     PostFormComponent,
     PostComponent,
-    StyleComponent
+    StyleDirective
   ],
   imports: [
     FormsModule,
