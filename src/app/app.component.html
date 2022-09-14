@@ -2,8 +2,8 @@
 
 <div class="app-wrapper">
   <h1>Angular Directives</h1>
-  <p appStyle >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, quasi.</p>
-
+  <p appStyle ="yellow" [dStyle]="{border:'1px solid red', borderRadius:'10px',fontWeight:'600'}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, quasi.</p>
+  <p appStyle ="pink" [dStyle]="{border:'1px solid blue', borderRadius:'10px',fontWeight:'600'}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, quasi.</p>
   <!--  //добавление новых постов-->
   <app-post-form
     (onAdd)="updatePosts($event)"

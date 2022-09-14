@@ -1,24 +1,28 @@
-import {Directive, ElementRef, HostListener, Renderer2} from "@angular/core";
+import {Directive, ElementRef, HostListener, Input, Renderer2} from "@angular/core";
 
 @Directive({
-  selector:"[appStyle]"
+  selector: "[appStyle]"
 })
 
-export class StyleDirective{
-constructor(private el:  ElementRef, private r: Renderer2) { //el-это наш  тег p
-  this.r.setStyle(this.el.nativeElement, 'color','red') //setStyle помогает добавлять какие то стили
-  // первым параметором setStyle добавляет нативный элемент (this.el.nativeElement), вторым -название того стиля который хотим изменить
-  // третий параметр на какое значение мы хотим его изменить.
-// el.nativeElement.style.color="red"
-}
+export class StyleDirective {
+  @Input('appStyle') color: string//сидит цвет по умолчанию
+  @Input() dStyle:{border:string, borderRadius:string,fontWeight:string}
 
-@HostListener('click',['$event.target']) onClick(event: Event){
-  console.log(event) //получаем наш р
-}
-@HostListener('mouseenter') onEnter(){
-  this.r.setStyle(this.el.nativeElement, 'color','green')
-}
-  @HostListener('mouseleave') onLeave(){
-    this.r.setStyle(this.el.nativeElement, 'color',null)
+  constructor(private el: ElementRef, private r: Renderer2) {
+  }
+
+
+  @HostListener('mouseenter') onEnter() {
+    this.r.setStyle(this.el.nativeElement, 'color', this.color)
+    this.r.setStyle(this.el.nativeElement, 'fontWeight', this.dStyle.fontWeight)
+    this.r.setStyle(this.el.nativeElement, 'border', this.dStyle.border)
+    this.r.setStyle(this.el.nativeElement, 'borderRadius', this.dStyle.borderRadius)
+  }
+
+  @HostListener('mouseleave') onLeave() {
+    this.r.setStyle(this.el.nativeElement, 'color', null)
+    this.r.setStyle(this.el.nativeElement, 'fontWeight', null)
+    this.r.setStyle(this.el.nativeElement, 'border', null)
+    this.r.setStyle(this.el.nativeElement, 'borderRadius', null)
   }
 }
